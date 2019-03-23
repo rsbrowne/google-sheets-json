@@ -57,6 +57,7 @@ a:hover {
 }
 
 .container--header {
+  margin-top: 100px;
   max-width: 900px;
   min-width: 750px;
 }
