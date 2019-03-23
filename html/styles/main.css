@@ -3,6 +3,7 @@
   --light-color: #FFF;
   --off-light-color: #ABB7BD;
   --orange-color: #FF8C00;
+  --orange-color-dark: #E67300;
 }
 
 body {
@@ -10,7 +11,7 @@ body {
   color: var(--off-light-color);
 }
 
-h1, h2 {
+h1, h2, h3 {
   color: var(--light-color);
   font-family: 'Lato', sans-serif;
   line-height: 1.2;
@@ -43,7 +44,7 @@ a {
 }
 
 a:hover {
-  font-weight: 500;
+  color: var(--orange-color-dark);
 }
 
 .credit {
@@ -78,4 +79,52 @@ a:hover {
 
 .books {
   padding: 50px 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book {
+  width: 32%;
+  min-height: 160px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: var(--light-color);
+  margin: 0 calc(4%/6) 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.book:hover {
+  transform: scale(1.05);
+  transition: all 0.3s;
+}
+
+.book h3 {
+  color: var(--dark-color);
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.book p {
+  color: var(--dark-color);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.button {
+  background-color: var(--orange-color);
+  color: var(--light-color);
+  font-family: 'Lucida Sans', Arial, sans-serif;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: auto;
+}
+
+.button:hover {
+  background-color: var(--orange-color-dark);
 }

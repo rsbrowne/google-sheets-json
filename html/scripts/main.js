@@ -4,7 +4,7 @@ const spreadsheetKey = '1PPC22XwRcY7_XYDj9OgYBkdY7Jz6gmDrrdosHF6cSgA';
 // Constructed URL to return JSON
 const url = 'https://spreadsheets.google.com/feeds/list/' + spreadsheetKey + '/od6/public/basic?alt=json';
 
-// Creat an empty arrayx to return our values to
+// Creat an empty array to return our values to
 let booksList = [];
 
 $(document).ready(function() {
@@ -33,6 +33,27 @@ $(document).ready(function() {
   }).fail(function() {
     // Add fail notification if connection to spreadsheet does not work
     console.error('No books found, please check that correct spreadsheet is being used!');
+  }).done(function() {
+    // After Async call is complete - A modern way to approach this is to use async/await but w/e
+
+    // Test that books were actually returned
+    if (booksList.length) {
+
+      $('.js-books').empty();
+
+      $(booksList).each(function() {
+        $('.js-books').append(
+          `
+            <div class="book">
+              <h3>${this.title}</h3>
+              <p>${this.author}</p>
+              <div class="button">More Info</div>
+            </div>
+          `
+        )
+      });
+    }
   });
+
 
 });
