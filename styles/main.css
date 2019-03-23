@@ -84,6 +84,7 @@ a:hover {
   justify-content: center;
   flex-wrap: wrap;
   max-width: 600px;
+  margin: 0 auto;
 }
 
 .filter {
