@@ -39,21 +39,53 @@ $(document).ready(function() {
     // Test that books were actually returned
     if (booksList.length) {
 
+      // Remove the holding text
       $('.js-books').empty();
 
+      // Iterate through the array of books and create a "card" for each one
       $(booksList).each(function() {
+        // Attach the cards to the cards container div
         $('.js-books').append(
+          // This append statement uses backticks and template literals. This is a modern approach to concatinating strings
           `
-            <div class="book">
+            <div class="book" data-genre="${this.genre}">
               <h3>${this.title}</h3>
               <p>${this.author}</p>
-              <div class="button">More Info</div>
+              <div class="button" data-title="${this.title}">More Info</div>
             </div>
           `
         )
       });
     }
+
+    // Click handler for the modal close button
+    $('.js-close').on('click', function() {
+      $('.js-modal-container').css('display', 'none');
+    })
+
+    // Click handler for clicking on the read more buttons on each card
+    $('.button').on('click', function() {
+      // Return the clicked book title
+      let clickedBook = $(this).data('title');
+      // Find that book in the array to get more details
+      let requiredBook = booksList.find(function(element) {
+        return element.title === clickedBook;
+      });
+
+      // Clear the modal to make way for new content
+      $('.js-modal-content').empty()
+
+      // Attach the new information
+      $('.js-modal-content').append(
+        `
+          <h2>${requiredBook.title}</h2>
+          <p>${requiredBook.author} - ${requiredBook.genre}</p>
+          <a href="${requiredBook.link}" target="_blank">Link to book information</a>
+        `
+      );
+
+      // Show the modal once the new data has been attached
+      $('.js-modal-container').css('display', 'flex');
+    });
   });
-
-
 });

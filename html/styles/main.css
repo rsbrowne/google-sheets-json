@@ -57,11 +57,13 @@ a:hover {
 }
 
 .container--header {
-  max-width: 1000px;
+  max-width: 900px;
+  min-width: 750px;
 }
 
 .container--body {
-  max-width: 1200px;
+  max-width: 1000px;
+  min-width: 800px;
 }
 
 .header {
@@ -78,7 +80,7 @@ a:hover {
 }
 
 .books {
-  padding: 50px 10px;
+  padding: 50px 10px 0;
   display: flex;
   flex-wrap: wrap;
 }
@@ -127,4 +129,68 @@ a:hover {
 
 .button:hover {
   background-color: var(--orange-color-dark);
+}
+
+.modal-container {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: relative;
+  width: 60%;
+  max-width: 700px;
+  min-width: 500px;
+  min-height: 100px;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: var(--light-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.close img {
+  height: 100%;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.modal-content h2 {
+  color: var(--dark-color);
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  color: var(--dark-color);
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.modal-content a {
+  font-weight: 600;
+  font-size: 17px;
 }
