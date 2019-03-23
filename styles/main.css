@@ -82,6 +82,8 @@ a:hover {
 .filters {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  max-width: 600px;
 }
 
 .filter {
@@ -89,7 +91,7 @@ a:hover {
   color: var(--orange-color);
   font-weight: 600;
   font-size: 18px;
-  margin: 0 5px;
+  margin: 5px;
   padding: 5px;
   border: 2px solid var(--orange-color);
   cursor: pointer;
