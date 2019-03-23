@@ -2,6 +2,7 @@
   --dark-color: #1C2329;
   --light-color: #FFF;
   --off-light-color: #ABB7BD;
+  --orange-color: #FF8C00;
 }
 
 body {
@@ -30,8 +31,23 @@ h2 {
 p {
   font-family: 'Lucida Sans', Arial, sans-serif;
   font-size: 16px; 
-  line-height: 26px; 
+  line-height: 26px;
   margin: 0;
+}
+
+a {
+  font-family: 'Lato', sans-serif;
+  color: var(--orange-color);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+a:hover {
+  font-weight: 500;
+}
+
+.credit {
+  margin: 25px 0;
 }
 
 .container {
@@ -57,6 +73,7 @@ p {
 
 .header p {
   max-width: 60%;
+  text-align: center;
 }
 
 .books {
