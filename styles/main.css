@@ -79,6 +79,31 @@ a:hover {
   text-align: center;
 }
 
+.filters {
+  display: flex;
+  justify-content: center;
+}
+
+.filter {
+  font-family: 'Lato', sans-serif;
+  color: var(--orange-color);
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0 5px;
+  padding: 5px;
+  border: 2px solid var(--orange-color);
+  cursor: pointer;
+}
+
+.filter:hover {
+  transform: scale(1.05);
+}
+
+.filter.active {
+  background-color: var(--orange-color);
+  color: var(--dark-color);
+}
+
 .books {
   padding: 50px 10px 0;
   display: flex;

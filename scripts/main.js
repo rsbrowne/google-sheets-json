@@ -39,6 +39,8 @@ $(document).ready(function() {
     // Test that books were actually returned
     if (booksList.length) {
 
+      let filterArray = [];
+
       // Remove the holding text
       $('.js-books').empty();
 
@@ -53,6 +55,20 @@ $(document).ready(function() {
               <p>${this.author}</p>
               <div class="button" data-title="${this.title}">More Info</div>
             </div>
+          `
+        )
+
+        filterArray.push(this.genre);
+      });
+
+      filterArray = filterArray.filter(function(item, pos) {
+        return filterArray.indexOf(item) == pos;
+      });
+
+      $(filterArray).each(function () {
+        $('.js-filters').append(
+          `
+            <div class='filter' data-genre='${this}'>${this}</div>
           `
         )
       });
@@ -86,6 +102,48 @@ $(document).ready(function() {
 
       // Show the modal once the new data has been attached
       $('.js-modal-container').css('display', 'flex');
+    });
+
+    // Adds click event listener to filter buttons
+    $('.filter').on('click', function() {
+      // return the genre of the filter we clicked on
+      let currentGenre = $(this).data('genre');
+
+      // Check if current filter is already active
+      if($(this).hasClass('active')) {
+
+        // If it is then reset active status and show all books
+        $(this).removeClass('active');
+        $('.book').each(function() {
+          $(this).show();
+        });
+      } else {
+        // If it's not then iterate through filters
+        $('.filter').each(function() {
+          // return each filter's genre
+          let filterGenre = $(this).data('genre');
+
+          // If genres match then add active class otherwise remove active class
+          if(filterGenre === currentGenre) {
+            $(this).addClass('active');
+          } else {
+            $(this).removeClass('active');
+          }
+        });
+
+        // Then iterate through each book card
+        $('.book').each(function() {
+          // Return the genre of the book 
+          let bookGenre = $(this).data('genre');
+  
+          // If the genres match then show the book otherwise hide it
+          if(bookGenre === currentGenre) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
     });
   });
 });
