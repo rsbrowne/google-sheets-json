@@ -1,0 +1,64 @@
+:root {
+  --dark-color: #1C2329;
+  --light-color: #FFF;
+  --off-light-color: #ABB7BD;
+}
+
+body {
+  background-color: var(--dark-color);
+  color: var(--off-light-color);
+}
+
+h1, h2 {
+  color: var(--light-color);
+  font-family: 'Lato', sans-serif;
+  line-height: 1.2;
+  font-weight: 300;
+  text-align: center;
+}
+
+h1 {
+  font-size: 54px;
+  margin: 0 0 58px;
+}
+
+h2 {
+  font-size: 45px;
+  margin: 0 0 49px;
+}
+
+p {
+  font-family: 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px; 
+  line-height: 26px; 
+  margin: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.container--header {
+  max-width: 1000px;
+}
+
+.container--body {
+  max-width: 1200px;
+}
+
+.header {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header p {
+  max-width: 60%;
+}
+
+.books {
+  padding: 50px 10px;
+}
